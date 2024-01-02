@@ -15,7 +15,7 @@ namespace C_Bootcamp_Fianl_Project
         {
             Console.WriteLine("Author: Sepehr Noey\n\n");
             Console.WriteLine("Welcome to my implementation of a basic file search.");
-            Console.WriteLine("1. Search for files\n2. Manage extensions\n3. View search history");
+            
             var pluginFolder = @"C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\C#Bootcamp_Fianl_Project\bin\Debug\plugins";
             var typesToEngines = new Dictionary<string, ISearch>();
             var handler = new SearchExtensionHandler(pluginFolder);
@@ -25,6 +25,7 @@ namespace C_Bootcamp_Fianl_Project
             int input; 
             while (true)
             {
+                Console.WriteLine("1. Search for files\n2. Manage extensions\n3. View search history");
                 try
                 {
                     input = int.Parse(Console.ReadLine().Trim());
@@ -37,14 +38,22 @@ namespace C_Bootcamp_Fianl_Project
                 switch (input)
                 {
                     case 1:
-                        Console.WriteLine("Enter type: (like txt, json, ...)");
-                        var fileType = Console.ReadLine().Trim().ToUpper();
-                        
-                        if (!typesToEngines.ContainsKey(fileType))
+                        Console.WriteLine("Enter file types to search with a comma in between: (like: txt, json)");
+                        var typesStr = Console.ReadLine().Trim().ToUpper();
+                        var types = typesStr.Split(new char[] {' ', ','}, StringSplitOptions.RemoveEmptyEntries);
+                        var allSupported = true;
+                        foreach (var type in types)
                         {
-                            Console.WriteLine("File type not supported");
-                            continue;
+                            if (!typesToEngines.ContainsKey(type))
+                            {
+                                Console.WriteLine($"File type {type} not supported");
+                                allSupported = false;
+                                break;
+                            }
                         }
+                        if (!allSupported)
+                            continue;
+                        
 
                         Console.WriteLine("Enter the root path:");
                         var path = Console.ReadLine().Trim();
@@ -58,7 +67,18 @@ namespace C_Bootcamp_Fianl_Project
                         Console.WriteLine("Enter query:");
                         var query = Console.ReadLine().Trim();
 
-                        var results = typesToEngines[fileType].Search(query, path, fileType);
+                        var results = new List<SearchResult>();
+                        foreach (var type in types)
+                        {
+                            results.AddRange(typesToEngines[type].Search(query, path, type));
+                        }
+
+                        if (results.Count == 0)
+                        {
+                            Console.WriteLine("No results found");
+                            continue;
+                        }
+
                         Console.WriteLine("Found results are:");
                         printResults(results);
 
@@ -66,7 +86,16 @@ namespace C_Bootcamp_Fianl_Project
 
                     case 2:
                         Console.WriteLine("Enter number:\n1. Load extension\n2. Delete extension");
-                        int command = int.Parse(Console.ReadLine().Trim());
+                        int command;
+                        try
+                        {
+                            command = int.Parse(Console.ReadLine().Trim());
+                        }catch(Exception e)
+                        {
+                            Console.WriteLine("Invalid input");
+                            continue;
+                        }
+
                         int extIndex;
                         if (command == 1)
                         {
@@ -80,7 +109,14 @@ namespace C_Bootcamp_Fianl_Project
                             printResults(foundExts);
 
                             Console.WriteLine("Enter the number of extension:");
-                            extIndex = int.Parse(Console.ReadLine().Trim()) - 1;
+                            try {
+                                extIndex = int.Parse(Console.ReadLine().Trim()) - 1;
+                            }catch(Exception e)
+                            {
+                                Console.WriteLine("Invalid input");
+                                continue;
+                            }
+                            
 
                             if (extIndex >= foundExts.Count || extIndex < 0)
                             {
@@ -108,7 +144,14 @@ namespace C_Bootcamp_Fianl_Project
                             }
                             
                             Console.WriteLine("Enter the number of extension:");
-                            extIndex = int.Parse((Console.ReadLine().Trim()).Trim()) - 1;
+                            try
+                            {
+                                extIndex = int.Parse((Console.ReadLine().Trim()).Trim()) - 1;
+                            }catch(Exception e)
+                            {
+                                Console.WriteLine("Invalid input");
+                                continue;
+                            }
 
                             if (extIndex >= existingExts.Count || extIndex < 0)
                             {
