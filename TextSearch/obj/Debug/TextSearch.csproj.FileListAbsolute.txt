@@ -1,0 +1,9 @@
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\TextSearch\bin\Debug\TextSearch.dll
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\TextSearch\bin\Debug\TextSearch.pdb
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\TextSearch\bin\Debug\SearchInterface.dll
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\TextSearch\bin\Debug\SearchInterface.pdb
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\TextSearch\obj\Debug\TextSearch.csproj.AssemblyReference.cache
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\TextSearch\obj\Debug\TextSearch.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\TextSearch\obj\Debug\TextSearch.csproj.CopyComplete
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\TextSearch\obj\Debug\TextSearch.dll
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\TextSearch\obj\Debug\TextSearch.pdb

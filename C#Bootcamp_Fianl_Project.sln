@@ -5,6 +5,10 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C#Bootcamp_Fianl_Project", "C#Bootcamp_Fianl_Project\C#Bootcamp_Fianl_Project.csproj", "{9B5CD6EC-D22A-4202-98AF-2E4FE2B341FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchInterface", "SearchInterface\SearchInterface.csproj", "{44A12E30-E84A-4AEE-B791-F9352FCFA13B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextSearch", "TextSearch\TextSearch.csproj", "{C769FC7B-1322-4758-8F29-A01E0EA8B7DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{9B5CD6EC-D22A-4202-98AF-2E4FE2B341FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B5CD6EC-D22A-4202-98AF-2E4FE2B341FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B5CD6EC-D22A-4202-98AF-2E4FE2B341FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44A12E30-E84A-4AEE-B791-F9352FCFA13B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44A12E30-E84A-4AEE-B791-F9352FCFA13B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44A12E30-E84A-4AEE-B791-F9352FCFA13B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44A12E30-E84A-4AEE-B791-F9352FCFA13B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C769FC7B-1322-4758-8F29-A01E0EA8B7DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C769FC7B-1322-4758-8F29-A01E0EA8B7DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C769FC7B-1322-4758-8F29-A01E0EA8B7DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C769FC7B-1322-4758-8F29-A01E0EA8B7DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

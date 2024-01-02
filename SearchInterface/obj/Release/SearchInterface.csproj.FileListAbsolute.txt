@@ -1,0 +1,6 @@
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SearchInterface\bin\Release\SearchInterface.dll
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SearchInterface\bin\Release\SearchInterface.pdb
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SearchInterface\obj\Release\SearchInterface.csproj.AssemblyReference.cache
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SearchInterface\obj\Release\SearchInterface.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SearchInterface\obj\Release\SearchInterface.dll
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SearchInterface\obj\Release\SearchInterface.pdb
