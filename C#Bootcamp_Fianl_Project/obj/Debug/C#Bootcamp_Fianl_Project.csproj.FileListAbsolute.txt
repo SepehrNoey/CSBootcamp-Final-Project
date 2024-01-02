@@ -1,0 +1,7 @@
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\C#Bootcamp_Fianl_Project\bin\Debug\C#Bootcamp_Fianl_Project.exe.config
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\C#Bootcamp_Fianl_Project\bin\Debug\C#Bootcamp_Fianl_Project.exe
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\C#Bootcamp_Fianl_Project\bin\Debug\C#Bootcamp_Fianl_Project.pdb
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\C#Bootcamp_Fianl_Project\obj\Debug\C#Bootcamp_Fianl_Project.csproj.AssemblyReference.cache
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\C#Bootcamp_Fianl_Project\obj\Debug\C#Bootcamp_Fianl_Project.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\C#Bootcamp_Fianl_Project\obj\Debug\C#Bootcamp_Fianl_Project.exe
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\C#Bootcamp_Fianl_Project\obj\Debug\C#Bootcamp_Fianl_Project.pdb
