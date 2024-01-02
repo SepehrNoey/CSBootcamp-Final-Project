@@ -1,0 +1,9 @@
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\JSONSearch\bin\Debug\JSONSearch.dll
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\JSONSearch\bin\Debug\JSONSearch.pdb
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\JSONSearch\bin\Debug\SearchInterface.dll
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\JSONSearch\bin\Debug\SearchInterface.pdb
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\JSONSearch\obj\Debug\JSONSearch.csproj.AssemblyReference.cache
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\JSONSearch\obj\Debug\JSONSearch.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\JSONSearch\obj\Debug\JSONSearch.csproj.CopyComplete
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\JSONSearch\obj\Debug\JSONSearch.dll
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\JSONSearch\obj\Debug\JSONSearch.pdb

@@ -1,16 +1,17 @@
 ﻿using SearchInterface;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 
 namespace C_Bootcamp_Fianl_Project
 {
-    internal class SearchExtensionLoader
+    internal class SearchExtensionHandler
     {
         public string PluginFolder { get; set; }
 
-        public SearchExtensionLoader(string pluginFolder) { 
+        public SearchExtensionHandler(string pluginFolder) { 
             this.PluginFolder = pluginFolder;
         }
 
@@ -29,5 +30,22 @@ namespace C_Bootcamp_Fianl_Project
             return (ISearch)Activator.CreateInstance(types[0]);
             
         }
+
+        public List<SearchResult> FindMatchingExts()
+        {
+            var files = Directory.GetFiles(PluginFolder, "*.dll", SearchOption.AllDirectories);
+            var results = new List<SearchResult>();
+            foreach (var file in files)
+            {
+                var asm = Assembly.LoadFrom(file);
+                var types = asm.GetTypes().Where(t => typeof(ISearch).IsAssignableFrom(t)).ToList();
+                if (types.Count > 0)
+                {
+                    results.Add(new SearchResult(Path.GetFileName(file), file));
+                }
+            }
+            return results;
+        }
+
     }
 }

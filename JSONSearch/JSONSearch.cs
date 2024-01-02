@@ -6,16 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextSearch
+namespace JSONSearch
 {
-    public class TextSearch : ISearch
+    public class JSONSearch : ISearch
     {
-        public string Type => "TXT";
+        public string Type => "JSON";
 
         public List<SearchResult> Search(string query, string root, string type)
         {
             var results = new List<SearchResult>();
-            string[] files = Directory.GetFiles(root, "*.txt", SearchOption.AllDirectories);
+            string[] files = Directory.GetFiles(root, "*.json", SearchOption.AllDirectories);
             foreach (string file in files)
             {
                 var file_name = Path.GetFileName(file);
@@ -28,5 +28,6 @@ namespace TextSearch
 
             return results;
         }
+
     }
 }
