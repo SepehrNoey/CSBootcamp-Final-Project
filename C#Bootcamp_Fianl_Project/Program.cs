@@ -1,8 +1,11 @@
 ﻿using SearchInterface;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -21,11 +24,12 @@ namespace C_Bootcamp_Fianl_Project
             var handler = new SearchExtensionHandler(pluginFolder);
             var defaultSearch = handler.Load("TextSearch.dll");
             typesToEngines[defaultSearch.Type] = defaultSearch;
+            var history = new OrderedDictionary();
 
             int input; 
             while (true)
             {
-                Console.WriteLine("1. Search for files\n2. Manage extensions\n3. View search history");
+                Console.WriteLine("1. Search for files\n2. Manage extensions\n3. View search history\n4. Exit");
                 try
                 {
                     input = int.Parse(Console.ReadLine().Trim());
@@ -72,6 +76,7 @@ namespace C_Bootcamp_Fianl_Project
                         {
                             results.AddRange(typesToEngines[type].Search(query, path, type));
                         }
+                        addToHistory(history, typesStr, query, results);
 
                         if (results.Count == 0)
                         {
@@ -170,9 +175,25 @@ namespace C_Bootcamp_Fianl_Project
 
                         break;
                     case 3:
-                        throw new NotImplementedException();
-                        
+                        var count = 0;
+                        foreach (object key in history.Keys)
+                        {
+                            count++;
+                            Console.WriteLine($"{count}. {key}");
+                            List<SearchResult> values = (List<SearchResult>)history[key];
+                            values.ForEach(item =>  Console.WriteLine($"{item}\n"));
+                            Console.WriteLine("**** **** ****\n");
+                        }
+
                         break;
+
+                    case 4:
+                        Console.WriteLine("Exiting...");
+                        return;
+
+                    default:
+                        Console.WriteLine("Invalid input, try again");
+                        continue;
                 }
                 
             }
@@ -185,6 +206,15 @@ namespace C_Bootcamp_Fianl_Project
             {
                 Console.WriteLine($"{i + 1}.\n{results[i]}\n");
             }
-        } 
+        }
+
+        private static void addToHistory(OrderedDictionary dict, string type, string query, List<SearchResult> results)
+        {
+            
+            var key = $"Search type: {type}\tQuery: {query}";
+            dict.Add(key, results);
+        }
+
+
     }
 }
