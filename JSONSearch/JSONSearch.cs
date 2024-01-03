@@ -13,10 +13,10 @@ namespace JSONSearch
     {
         public string Type => "JSON";
 
-        public List<SearchResult> Search(string query, string root, string type)
+        public List<SearchResult> Search(string query, string root, string type, bool subDir)
         {
             var results = new List<SearchResult>();
-            string[] files = Directory.GetFiles(root, "*.json", SearchOption.AllDirectories);
+            string[] files = Directory.GetFiles(root, "*.json", subDir == true ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
             foreach (string file in files)
             {
                 var fileName = Path.GetFileName(file);

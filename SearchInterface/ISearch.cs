@@ -9,7 +9,7 @@ namespace SearchInterface
     public interface ISearch
     {
         string Type { get; }
-        List<SearchResult> Search(string query, string root, string type);
+        List<SearchResult> Search(string query, string root, string type, bool subDir);
         // more functions can be added later
     }
 }

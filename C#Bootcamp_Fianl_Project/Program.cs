@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace C_Bootcamp_Fianl_Project
 {
@@ -76,11 +77,39 @@ namespace C_Bootcamp_Fianl_Project
 
                         var query = flagsValue["q"]; // query
 
-                        var results = new List<SearchResult>();
+                        var searchers = new List<Task<List<SearchResult>>>();
+                        
+                        // adding searchers for each type in current directory (not subdirectories)
                         foreach (var type in types)
+                            searchers.Add(new Task<List<SearchResult>> (() => typesToEngines[type].Search(query, path, type, false)));
+                        
+                        // adding task for each each 3 subdirectories and type
+                        var subDirs = Directory.GetDirectories(path);
+                        for (int i = 0; i < subDirs.Length; i += 3)
                         {
-                            results.AddRange(typesToEngines[type].Search(query, path, type));
+                            foreach (var type in types)
+                            {
+                                var t = new Task<List<SearchResult>>(() =>
+                                {
+                                    var currResults = new List<SearchResult>();
+                                    if (i < subDirs.Length)
+                                        currResults.AddRange(typesToEngines[type].Search(query, subDirs[i], type, true));
+                                    if (i + 1 < subDirs.Length)
+                                        currResults.AddRange(typesToEngines[type].Search(query, subDirs[i + 1], type, true));
+                                    if (i + 2 < subDirs.Length)
+                                        currResults.AddRange(typesToEngines[type].Search(query, subDirs[i + 2], type, true));
+
+                                    return currResults;
+                                });
+
+                                searchers.Add(t);
+                            }
                         }
+
+                        searchers.ForEach(t => t.Start());
+                        Task.WaitAll(searchers.ToArray());
+                        var results = new List<SearchResult>();
+                        searchers.ForEach(t => results.AddRange(t.Result));
                         addToHistory(history, typesStr, path, query, results);
 
                         if (results.Count == 0)

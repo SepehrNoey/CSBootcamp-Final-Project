@@ -13,10 +13,10 @@ namespace TextSearch
     {
         public string Type => "TXT";
 
-        public List<SearchResult> Search(string query, string root, string type)
+        public List<SearchResult> Search(string query, string root, string type, bool subDir)
         {
             var results = new List<SearchResult>();
-            string[] files = Directory.GetFiles(root, "*.txt", SearchOption.AllDirectories);
+            string[] files = Directory.GetFiles(root, "*.txt", subDir == true ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
             
             foreach (string file in files)
             {
