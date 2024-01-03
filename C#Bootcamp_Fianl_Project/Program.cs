@@ -78,35 +78,7 @@ namespace C_Bootcamp_Fianl_Project
 
                         var query = flagsValue["q"]; // query
 
-                        var searchers = new List<Task<List<SearchResult>>>();
-                        
-                        // adding searchers for each type in current directory (not subdirectories)
-                        foreach (var type in types)
-                            searchers.Add(new Task<List<SearchResult>> (() => typesToEngines[type].Search(query, path, type, false)));
-                        
-                        // adding task for each each 3 subdirectories and type
-                        var subDirs = Directory.GetDirectories(path);
-                        for (int i = 0; i < subDirs.Length; i += 3)
-                        {
-                            foreach (var type in types)
-                            {
-                                var t = new Task<List<SearchResult>>(() =>
-                                {
-                                    var currResults = new List<SearchResult>();
-                                    if (i < subDirs.Length)
-                                        currResults.AddRange(typesToEngines[type].Search(query, subDirs[i], type, true));
-                                    if (i + 1 < subDirs.Length)
-                                        currResults.AddRange(typesToEngines[type].Search(query, subDirs[i + 1], type, true));
-                                    if (i + 2 < subDirs.Length)
-                                        currResults.AddRange(typesToEngines[type].Search(query, subDirs[i + 2], type, true));
-
-                                    return currResults;
-                                });
-
-                                searchers.Add(t);
-                            }
-                        }
-
+                        var searchers = new SearchDistributer().Distribute(typesToEngines, query, path, types);
                         searchers.ForEach(t => t.Start());
                         Task.WaitAll(searchers.ToArray());
                         var results = new List<SearchResult>();
