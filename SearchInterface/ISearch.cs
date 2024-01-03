@@ -10,6 +10,6 @@ namespace SearchInterface
     {
         string Type { get; }
         List<SearchResult> Search(string query, string root, string type, bool subDir);
-        // more functions can be added later
+        List<SearchResult> SearchByContent(string query, string root, string type, bool subDir);
     }
 }

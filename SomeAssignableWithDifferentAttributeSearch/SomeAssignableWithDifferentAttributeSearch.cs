@@ -15,5 +15,10 @@ namespace SomeAssignableWithDifferentAttributeSearch
         {
             return new List<SearchResult>(); // just for simplicity
         }
+
+        public List<SearchResult> SearchByContent(string query, string root, string type, bool subDir)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

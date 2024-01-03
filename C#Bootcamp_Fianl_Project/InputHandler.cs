@@ -19,7 +19,7 @@ namespace C_Bootcamp_Fianl_Project
             foreach (Match match in matches)
             {
                 string flag = match.Groups[1].Value;
-                string value = match.Groups[2].Value;
+                string value = match.Groups[2].Value.Trim();
                 if (flag == "t") // type
                     value = value.ToUpper();
 
@@ -27,7 +27,7 @@ namespace C_Bootcamp_Fianl_Project
 
             }
 
-            if (!flags.ContainsKey("t") || !flags.ContainsKey("q") || !flags.ContainsKey("p"))
+            if (!flags.ContainsKey("t") || !flags.ContainsKey("q") || !flags.ContainsKey("p") || !flags.ContainsKey("c"))
                 throw new Exception("Required flags not given");
 
             return flags;

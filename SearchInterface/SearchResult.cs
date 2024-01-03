@@ -8,17 +8,19 @@ namespace SearchInterface
 {
     public class SearchResult
     {
-        public SearchResult(string name, string path) {
+        public SearchResult(string name, string path, string content = "Default-Content") {
             this.Name = name;
             this.Path = path;
+            this.Content = content;
         }
 
         public string Name { get; set; }
         public string Path { get; set; }
+        public string Content {  get; set; }
 
         public override string ToString()
         {
-            return $"name: {Name}\npath: {Path}";
+            return $"name: {Name}\npath: {Path}\ncontent: {Content}";
         }
     }
 }

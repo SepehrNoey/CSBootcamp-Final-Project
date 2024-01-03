@@ -10,13 +10,18 @@ namespace C_Bootcamp_Fianl_Project
 {
     internal class SearchDistributer
     {
-        public List<Task<List<SearchResult>>> Distribute(Dictionary<string, ISearch> engines, string query, string path, string[] wantedTypes)
+        public List<Task<List<SearchResult>>> Distribute(Dictionary<string, ISearch> engines, string query, string path, string[] wantedTypes, bool byContent)
         {
             var searchers = new List<Task<List<SearchResult>>>();
 
             // adding searchers for each type in current directory (not subdirectories)
             foreach (var type in wantedTypes)
-                searchers.Add(new Task<List<SearchResult>>(() => engines[type].Search(query, path, type, false)));
+            {
+                if (!byContent)
+                    searchers.Add(new Task<List<SearchResult>>(() => engines[type].Search(query, path, type, false)));
+                else
+                    searchers.Add(new Task<List<SearchResult>>(() => engines[type].SearchByContent(query, path, type, false)));
+            }
 
             // adding task for each each 3 subdirectories and type
             var subDirs = Directory.GetDirectories(path);
@@ -28,11 +33,29 @@ namespace C_Bootcamp_Fianl_Project
                     {
                         var currResults = new List<SearchResult>();
                         if (i < subDirs.Length)
-                            currResults.AddRange(engines[type].Search(query, subDirs[i], type, true));
+                        {
+                            if (!byContent)
+                                currResults.AddRange(engines[type].Search(query, subDirs[i], type, true));
+                            else
+                                currResults.AddRange(engines[type].SearchByContent(query, subDirs[i], type, true));
+
+                        }
                         if (i + 1 < subDirs.Length)
-                            currResults.AddRange(engines[type].Search(query, subDirs[i + 1], type, true));
+                        {
+                            if (!byContent)
+                                currResults.AddRange(engines[type].Search(query, subDirs[i + 1], type, true));
+                            else
+                                currResults.AddRange(engines[type].SearchByContent(query, subDirs[i + 1], type, true));
+
+                        }
                         if (i + 2 < subDirs.Length)
-                            currResults.AddRange(engines[type].Search(query, subDirs[i + 2], type, true));
+                        {
+                            if (!byContent)
+                                currResults.AddRange(engines[type].Search(query, subDirs[i + 2], type, true));
+                            else
+                                currResults.AddRange(engines[type].SearchByContent(query, subDirs[i + 2], type, true));
+
+                        }
 
                         return currResults;
                     });

@@ -7,3 +7,5 @@ C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\JSONSearch\obj\Debug\JSONS
 C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\JSONSearch\obj\Debug\JSONSearch.csproj.CopyComplete
 C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\JSONSearch\obj\Debug\JSONSearch.dll
 C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\JSONSearch\obj\Debug\JSONSearch.pdb
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\JSONSearch\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\JSONSearch\bin\Debug\Newtonsoft.Json.xml

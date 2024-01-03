@@ -77,13 +77,21 @@ namespace C_Bootcamp_Fianl_Project
                         }
 
                         var query = flagsValue["q"]; // query
-
-                        var searchers = new SearchDistributer().Distribute(typesToEngines, query, path, types);
+                        bool byContent;
+                        try
+                        {
+                            byContent = bool.Parse(flagsValue["c"]);
+                        }catch(Exception)
+                        {
+                            dispHandler.InvalidInput();
+                            continue;
+                        }
+                        var searchers = new SearchDistributer().Distribute(typesToEngines, query, path, types, byContent);
                         searchers.ForEach(t => t.Start());
                         Task.WaitAll(searchers.ToArray());
                         var results = new List<SearchResult>();
                         searchers.ForEach(t => results.AddRange(t.Result));
-                        addToHistory(history, typesStr, path, query, results);
+                        addToHistory(history, typesStr, path, query, byContent, results);
 
                         if (results.Count == 0)
                         {
@@ -200,6 +208,9 @@ namespace C_Bootcamp_Fianl_Project
                         break;
 
                     case 4:
+                        dispHandler.Help();
+                        break;
+                    case 5:
                         dispHandler.Print("Exiting...");
                         return;
 
@@ -213,10 +224,10 @@ namespace C_Bootcamp_Fianl_Project
         }
 
 
-        private static void addToHistory(OrderedDictionary dict, string type,string path, string query, List<SearchResult> results)
+        private static void addToHistory(OrderedDictionary dict, string type,string path, string query, bool byContent, List<SearchResult> results)
         {
             
-            var key = $"Search type: {type}\tPath: {path}\tQuery: {query}";
+            var key = $"Search type: {type}\tPath: {path}\tQuery: {query}\tByContent: {byContent}";
             dict.Add(key, results);
         }
 
