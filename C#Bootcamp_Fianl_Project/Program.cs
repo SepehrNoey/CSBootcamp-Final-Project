@@ -17,10 +17,11 @@ namespace C_Bootcamp_Fianl_Project
             
             var pluginFolder = @"C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\C#Bootcamp_Fianl_Project\bin\Debug\plugins";
             var typesToEngines = new Dictionary<string, ISearch>();
-            var extHandler = new SearchExtensionHandler(pluginFolder);
-            var defaultSearch = extHandler.Load("TextSearch.dll");
+            var extHandler = new ExtensionHandler(pluginFolder);
+            var defaultSearch = extHandler.LoadSearchExt("TextSearch.dll");
             typesToEngines[defaultSearch.Type] = defaultSearch;
             var history = new OrderedDictionary();
+            var extLoadingErrors = new List<string>();
 
             var inpHandler = new InputHandler();
 
@@ -137,10 +138,12 @@ namespace C_Bootcamp_Fianl_Project
                         int extIndex;
                         if (command == 1)
                         {
-                            var foundExts = extHandler.FindMatchingExts();
+                            var foundExts = extHandler.FindAllExts();
                             if (foundExts.Count == 0)
                             {
-                                dispHandler.NoMatchingExtFound();
+                                var msg = "No extension found";
+                                dispHandler.Print(msg);
+                                extLoadingErrors.Add(msg);
                                 continue;
                             }
                             dispHandler.Print("Found extensions are:");
@@ -159,7 +162,16 @@ namespace C_Bootcamp_Fianl_Project
                                 dispHandler.InvalidInput();
                                 continue;
                             }
-                            var searcher = extHandler.Load(foundExts[extIndex].Name);
+                            ISearch searcher;
+                            try
+                            {
+                                searcher = extHandler.LoadSearchExt(foundExts[extIndex].Name);
+                            }catch(Exception e)
+                            {
+                                dispHandler.Print(e.Message);
+                                extLoadingErrors.Add(e.Message);
+                                continue;
+                            }
                             typesToEngines[searcher.Type] = searcher;
                             dispHandler.Print($"Loaded extension {foundExts[extIndex].Name}");
 
@@ -196,6 +208,12 @@ namespace C_Bootcamp_Fianl_Project
                             }
                             typesToEngines.Remove(existingExts[extIndex]);
                             dispHandler.Print("Extension removed.");
+                        }else if(command == 3)
+                        {
+                            for (int i = 0; i < extLoadingErrors.Count; i++)
+                            {
+                                dispHandler.Print($"{i + 1}. {extLoadingErrors[i]}");
+                            }
                         }
                         else
                         {

@@ -1,0 +1,6 @@
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SomeNonAssignableSearch\bin\Debug\SomeNonAssignableSearch.dll
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SomeNonAssignableSearch\bin\Debug\SomeNonAssignableSearch.pdb
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SomeNonAssignableSearch\obj\Debug\SomeNonAssignableSearch.csproj.AssemblyReference.cache
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SomeNonAssignableSearch\obj\Debug\SomeNonAssignableSearch.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SomeNonAssignableSearch\obj\Debug\SomeNonAssignableSearch.dll
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SomeNonAssignableSearch\obj\Debug\SomeNonAssignableSearch.pdb

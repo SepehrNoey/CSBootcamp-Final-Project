@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace JSONSearch
 {
+    [CSBootcamp("JSONSearchAttribute")]
     public class JSONSearch : ISearch
     {
         public string Type => "JSON";

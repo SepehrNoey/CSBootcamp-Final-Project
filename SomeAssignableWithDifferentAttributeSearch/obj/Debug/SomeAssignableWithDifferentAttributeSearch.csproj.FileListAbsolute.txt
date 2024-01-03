@@ -1,0 +1,9 @@
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SomeAssignableWithDifferentAttributeSearch\bin\Debug\SomeAssignableWithDifferentAttributeSearch.dll
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SomeAssignableWithDifferentAttributeSearch\bin\Debug\SomeAssignableWithDifferentAttributeSearch.pdb
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SomeAssignableWithDifferentAttributeSearch\bin\Debug\SearchInterface.dll
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SomeAssignableWithDifferentAttributeSearch\bin\Debug\SearchInterface.pdb
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SomeAssignableWithDifferentAttributeSearch\obj\Debug\SomeAssignableWithDifferentAttributeSearch.csproj.AssemblyReference.cache
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SomeAssignableWithDifferentAttributeSearch\obj\Debug\SomeAssignableWithDifferentAttributeSearch.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SomeAssignableWithDifferentAttributeSearch\obj\Debug\SomeAssignableWithDifferentAttributeSearch.csproj.CopyComplete
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SomeAssignableWithDifferentAttributeSearch\obj\Debug\SomeAssignableWithDifferentAttributeSearch.dll
+C:\Users\Lenovo\source\repos\C#Bootcamp_Fianl_Project\SomeAssignableWithDifferentAttributeSearch\obj\Debug\SomeAssignableWithDifferentAttributeSearch.pdb

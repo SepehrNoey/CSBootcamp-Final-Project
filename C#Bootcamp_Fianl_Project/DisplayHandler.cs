@@ -68,7 +68,7 @@ namespace C_Bootcamp_Fianl_Project
 
         public void MngExtPrompt()
         {
-            Console.WriteLine("Enter number:\n1. Load extension\n2. Delete extension");
+            Console.WriteLine("Enter number:\n1. Load extension\n2. Delete extension\n3. Show previous loading errors");
         }
 
         public void NoMatchingExtFound()

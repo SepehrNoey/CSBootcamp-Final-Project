@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace TextSearch
 {
+    [CSBootcamp("TextSearchAttribute")]
     public class TextSearch : ISearch
     {
         public string Type => "TXT";
